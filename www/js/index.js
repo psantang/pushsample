@@ -1,6 +1,7 @@
 var app = {
     initialize: function() {
         document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
+        this.startMonitor();
     },
     onDeviceReady: function() {
         this.receivedEvent('deviceready');
