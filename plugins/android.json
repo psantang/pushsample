@@ -12,10 +12,10 @@
       "FCM_VERSION": "18.0.0",
       "GRADLE_TOOLS_VERSION": "3.5.0",
       "GOOGLE_SERVICES_VERSION": "4.2.0",
-      "PACKAGE_NAME": "com.paulsantangelo.pushsample"
+      "PACKAGE_NAME": "com.paulsantangelo.finDB"
     },
     "cordova-plugin-whitelist": {
-      "PACKAGE_NAME": "com.paulsantangelo.pushsample"
+      "PACKAGE_NAME": "com.paulsantangelo.finDB"
     }
   },
   "dependent_plugins": {}
