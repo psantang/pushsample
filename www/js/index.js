@@ -1,12 +1,18 @@
 var app = {
     initialize: function() {
         document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
-        this.startMonitor();
+        document.getElementById('statusDiv').appendChild(document.createTextNode(' -INIT |'))
+        //this.startMonitor();
     },
     onDeviceReady: function() {
-        this.receivedEvent('deviceready');
+      document.getElementById('statusDiv').appendChild(document.createTextNode(' -DeviceReady |'))
+      this.receivedEvent('deviceready');
     },
     receivedEvent: function(id) {
+        document.getElementById('statusDiv').appendChild(document.createTextNode(' -RcvdEvent |'))
+        console.log('Received Event: ' + id);
+
+
         var parentElement = document.getElementById(id);
         var listeningElement = parentElement.querySelector('.listening');
         var receivedElement = parentElement.querySelector('.received');
@@ -15,13 +21,15 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         FCMPlugin.onTokenRefresh(function(token){
+          document.getElementById('statusDiv').appendChild(document.createTextNode('-TknRfrsh |'))
             alert( token );
-			      var div = document.getElementById('divToken');
-            div.innerHTML += token;
+			      //var div = document.getElementById('divToken');
+            //div.innerHTML += token;
           });
 
           FCMPlugin.onNotification(
             function(data){
+              document.getElementById('statusDiv').appendChild(document.createTextNode('-DATA |'))
               if(data.wasTapped){
                 //Notification was received on device tray and tapped by the user.
                 alert( JSON.stringify(data) );
@@ -32,15 +40,14 @@ var app = {
             },
             function(msg){
               console.log('onNotification callback successfully registered: ' + msg);
+              document.getElementById('statusDiv').appendChild(document.createTextNode('-MSG |'))
             },
             function(err){
               console.log('Error registering onNotification callback: ' + err);
             }
           );
-
-        console.log('Received Event: ' + id);
-    },
-    //var counter=1,
+    }
+    /*,
     startMonitor: function() {
       var count=1;
       function startTime() {
@@ -51,5 +58,6 @@ var app = {
       startTime()
 
     }
+    */
 };
 app.initialize();

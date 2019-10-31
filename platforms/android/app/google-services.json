@@ -30,6 +30,13 @@
             {
               "client_id": "373726213820-cf1eefplehtfalvq3giudl83so8tdo9n.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "373726213820-hct05uk6sm3och2dek6gp10or4bfjr05.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.paulsantangelo.pushsample"
+              }
             }
           ]
         }
